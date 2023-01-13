@@ -1,10 +1,17 @@
 Creating the Fake Server using nodeJS
+https://github.com/typicode/json-server
+
 Creating the HTML Template
+
 Creating HTML form to add New Data 
     Validation to the Form 
     [id , name , Age , salary ]
+
+
 All Operations [ C , R , U , D ]
+
 Prompt Before Deletion 
+
 Creating a ReamME file 
 // NOTE: Do it for all Other Repos 
 
