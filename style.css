@@ -46,3 +46,19 @@ body {
 section {
   margin: 50px;
 }
+
+.buttons
+{
+  text-align: center;
+}
+
+button 
+{
+  padding: 15px;
+  border-radius: 25px;
+  color: black;
+  background-color: rgb(233, 193, 119);
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid black;
+}

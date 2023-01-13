@@ -1,6 +1,6 @@
 {
     "Users": [
-      { "id": 1, "title": "json-server", "author": "Ayman" } ,
-      { "id": 2, "title": "GG-server", "author": "Khaled" }
+      { "id": 1551, "Age": "json-server", "Name": "Ayman" ,  "Salay": 4565 } ,
+      { "id": 2, "Age": "GG-server", "Name": "Khaled" , "Salay": 4565}
     ]
   }
