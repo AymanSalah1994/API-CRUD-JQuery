@@ -1,6 +1,6 @@
 $(function () {
-   function getAlliDs(allIds) {
-     $.ajax({
+  function getAlliDs(allIds) {
+    $.ajax({
       type: "get",
       url: "http://localhost:3000/Users",
       success: function (response) {
@@ -12,13 +12,13 @@ $(function () {
     });
   } // Get all IDs
 
-   function validateFourFileds() {
+  function validateFourFileds() {
     // id [ Nubmer and Unique]
     // Age [ 20-60]
     // Name [ Letters and Space Only ]
     // Salary [ 0 or More ]
     var allIds = [];
-     getAlliDs(allIds);
+    getAlliDs(allIds);
     console.log("Those are ids");
     console.log(allIds);
     let idInput = $("#id").val();
@@ -48,12 +48,14 @@ $(function () {
   }
 
   $("#loadData").on("click", function () {
-    $("#tableContent").empty() ; 
+    $("#tableContent").empty();
+    // TODO detach and Events ???
     $.ajax({
       type: "get",
       url: "http://localhost:3000/Users",
       success: function (response) {
         let allData = response;
+        let userURL = "http://localhost:3000/Users/";
         for (const eachObject of allData) {
           $("#tableContent").append(`<tr>
           <td>${eachObject.id}</td>
@@ -61,7 +63,9 @@ $(function () {
           <td>${eachObject.Name}</td>
           <td>${eachObject.Salary}</td>
           <td>
-            *<a href="#">Edit</a>|<a href="#">Delete</a>*
+            *<a href="#">Edit</a>|<button href="${
+              userURL + eachObject.id
+            }" id="Remove">Delete</button>*
           </td>
         </tr>`);
         }
@@ -75,8 +79,8 @@ $(function () {
 
   $("#postData").on("click", function () {
     let result = validateFourFileds();
-    console.log("THE RESULT")
-    console.log(result) ; 
+    console.log("THE RESULT");
+    console.log(result);
     if (result === 0) {
       console.log("Error in the Validation");
     } else {
@@ -97,4 +101,28 @@ $(function () {
       });
     }
   }); // Adding New Record
+
+  $("#tableContent").on("mouseover", "button", function () {
+    $(this).on("click", function () {
+      // NOTE: $this is for the Button
+      if (confirm("Are you Sure you want to Delete ?")) {
+        console.log("Accept");
+        console.log($(this).attr("href"));
+        $.ajax({
+          url: $(this).attr("href"),
+          type: "DELETE",
+          success: function (re) {
+            console.log(re);
+            $("#loadData").trigger("click");
+          },
+          catch: function (Error) {
+            console.log(Error);
+          },
+        });
+      } else {
+        console.log("Refused");
+        $("#loadData").trigger("click");
+      }
+    });
+  }); // Deleting a Record
 }); // End Of Loading Function

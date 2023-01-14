@@ -72,3 +72,9 @@ input
 {
   padding: 10px;
 }
+#Remove 
+{
+  padding: 2px;
+  background-color: red;
+  color: black;
+}
