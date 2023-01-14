@@ -92,15 +92,7 @@ $(function () {
         success: function (res) {
           console.log("Done");
           console.log(res);
-          $("#tableContent").append(`<tr>
-          <td>${$("#id").val()}</td>
-          <td>${ $("#age").val()}</td>
-          <td>${ $("#name").val()}</td>
-          <td>${ $("#salary").val()}</td>
-          <td>
-            *<a href="#">Edit</a>|<a href="#">Delete</a>*
-          </td>
-        </tr>`);
+          $("#loadData").trigger("click");
         },
       });
     }
