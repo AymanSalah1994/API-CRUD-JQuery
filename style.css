@@ -47,13 +47,11 @@ section {
   margin: 50px;
 }
 
-.buttons
-{
+.buttons {
   text-align: center;
 }
 
-button 
-{
+button {
   padding: 15px;
   border-radius: 25px;
   color: black;
@@ -61,4 +59,16 @@ button
   font-size: 14px;
   font-weight: bold;
   border: 2px solid black;
+}
+
+.addRecord {
+  text-align: center;
+}
+.adaptive
+{
+  display: none;
+}
+input 
+{
+  padding: 10px;
 }
