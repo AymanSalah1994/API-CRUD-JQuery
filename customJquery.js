@@ -1,4 +1,5 @@
 $(function () {
+
   function getAlliDs(allIds) {
     $.ajax({
       type: "get",
@@ -49,7 +50,6 @@ $(function () {
 
   $("#loadData").on("click", function () {
     $("#tableContent").empty();
-    // TODO detach and Events ???
     $.ajax({
       type: "get",
       url: "http://localhost:3000/Users",
@@ -125,4 +125,6 @@ $(function () {
       }
     });
   }); // Deleting a Record
+
+  
 }); // End Of Loading Function
