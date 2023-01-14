@@ -1,8 +1,4 @@
-Creating HTML form to add New Data 
-    Validation to the Form 
-    [id , name , Age , salary ]
-All Operations [ C , R , U , D ]
-Prompt Before Deletion 
+All Operations [ U  ]
 Creating a ReamME file 
 // [x] SORTING as a bonus
 

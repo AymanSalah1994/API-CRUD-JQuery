@@ -1,3 +1,2 @@
-3- create html form page to add new employee with validation this form (id field accept number only ,age must be between 20 and mke 60)
 4- creat anthor form for edite selected employee data 
-5- select emp from first page which display all emp and remove it ,befor remove confirm from user 
+
