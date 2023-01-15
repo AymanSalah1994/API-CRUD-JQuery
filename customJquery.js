@@ -42,7 +42,6 @@ $(function () {
       alert("Error in the Salary Field");
       return 0;
     } else {
-      alert("Everything is OK ");
       return 1;
     }
   }
@@ -62,7 +61,7 @@ $(function () {
           <td>${eachObject.Name}</td>
           <td>${eachObject.Salary}</td>
           <td>
-            *<a href="#">Edit</a>|<button href="${
+            *<a href="editUser.html?id=${eachObject.id}">Edit</a>|<button href="${
               userURL + eachObject.id
             }" id="Remove">Delete</button>*
           </td>
@@ -97,7 +96,11 @@ $(function () {
           console.log(res);
           $("#loadData").trigger("click");
         },
+        error: function (Error) {
+         alert("Cant Add Duplicate IDs");
+        }
       });
+      
     }
   }); // Adding New Record
 
@@ -125,20 +128,5 @@ $(function () {
     });
   }); // Deleting a Record
 
-  const saveUpdates = function () {
-    console.log("I am Saving updates");
-  };
-
-  $("#tableContent").on("mouseover", "a", function () {
-    $(this).on("click", function () {
-      console.log("EDRRR");
-      $(this).parent().parent().html(`<tr>
-      <td><input type="text" id="id" placeholder="ID"></td>
-      <td><input type="text" id="age" placeholder="Age"></td>
-      <td><input type="text" id="name" placeholder="Name"></td>
-      <td><input type="text" id="salary" placeholder="Salary"></td>
-      <td><button onclick="saveUpdates()">Save Updates</button></td>
-  </tr>`);
-    });
-  }); // Deleting a Record
+  
 }); // End Of Loading Function
