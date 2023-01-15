@@ -1,5 +1,4 @@
 $(function () {
-
   function getAlliDs(allIds) {
     $.ajax({
       type: "get",
@@ -27,23 +26,23 @@ $(function () {
     let nameInput = $("#name").val();
     let salaryInput = $("#salary").val();
     if (isNaN(Number(idInput)) || allIds.includes(Number(idInput))) {
-      console.log("Error in the ID Field");
+      alert("Error in the ID Field");
       return 0;
     } else if (
       isNaN(Number(ageInput)) ||
       Number(ageInput) < 20 ||
       Number(ageInput) > 60
     ) {
-      console.log("Error in the Age Field");
+      alert("Error in the Age Field");
       return 0;
     } else if (/^[A-Za-z\s]*$/.test(nameInput) != true) {
-      console.log("Error in the Name Field");
+      alert("Error in the Name Field");
       return 0;
     } else if (isNaN(Number(salaryInput)) || Number(salaryInput) < 0) {
-      console.log("Error in the Salary Field");
+      alert("Error in the Salary Field");
       return 0;
     } else {
-      console.log("Everything is OK ");
+      alert("Everything is OK ");
       return 1;
     }
   }
@@ -102,7 +101,7 @@ $(function () {
     }
   }); // Adding New Record
 
-  $("#tableContent").on("mouseover", "button", function () {
+  $("#tableContent").on("mouseover", "button#Remove", function () {
     $(this).on("click", function () {
       // NOTE: $this is for the Button
       if (confirm("Are you Sure you want to Delete ?")) {
@@ -126,5 +125,20 @@ $(function () {
     });
   }); // Deleting a Record
 
-  
+  const saveUpdates = function () {
+    console.log("I am Saving updates");
+  };
+
+  $("#tableContent").on("mouseover", "a", function () {
+    $(this).on("click", function () {
+      console.log("EDRRR");
+      $(this).parent().parent().html(`<tr>
+      <td><input type="text" id="id" placeholder="ID"></td>
+      <td><input type="text" id="age" placeholder="Age"></td>
+      <td><input type="text" id="name" placeholder="Name"></td>
+      <td><input type="text" id="salary" placeholder="Salary"></td>
+      <td><button onclick="saveUpdates()">Save Updates</button></td>
+  </tr>`);
+    });
+  }); // Deleting a Record
 }); // End Of Loading Function
