@@ -1,0 +1,6 @@
+1-Put the API-Data Folder outside the Project Folder 
+2- Run "$ json-server --watch db.json "
+3-Use the Project
+
+
+// TODO  SORTING
